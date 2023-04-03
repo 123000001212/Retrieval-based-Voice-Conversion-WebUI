@@ -636,7 +636,7 @@ with gr.Blocks() as app:
             gr.Markdown(value="""加开发群联系我xxxxx""")
         with gr.TabItem("点击查看交流、问题反馈群号"):
             gr.Markdown(value="""xxxxx""")
-'''
+
     if iscolab:
         app.queue(concurrency_count=511, max_size=1022).launch(share=True)
     else:
@@ -653,4 +653,4 @@ if __name__=='__main__':
              file_big_npy="/content/drive/MyDrive/total_fea.npy",
              index_rate=1)
 
-
+'''
