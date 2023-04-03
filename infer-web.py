@@ -481,11 +481,11 @@ with gr.Blocks() as app:
                 with gr.Row():
                     with gr.Column():
                         vc_transform0 = gr.Number(label="变调（整数，半音数量，升八度12降八度-12）", value=0)
-                        input_audio0 = gr.Textbox(label="输入待处理音频文件路径(默认是正确格式示例)",value="E:\codes\py39\\vits_vc_gpu_train\\todo-songs\冬之花clip1.wav")
+                        input_audio0 = gr.Textbox(label="输入待处理音频文件路径(默认是正确格式示例)",value="/content/drive/MyDrive/...")
                         f0method0=gr.Radio(label="选择音高提取算法,输入歌声可用pm提速,harvest低音好但巨慢无比", choices=["pm","harvest"],value="pm", interactive=True)
                     with gr.Column():
-                        file_index1 = gr.Textbox(label="特征检索库文件路径",value="E:\codes\py39\\vits_vc_gpu_train\logs\mi-test-1key\\added_IVF677_Flat_nprobe_7.index", interactive=True)
-                        file_big_npy1 = gr.Textbox(label="特征文件路径",value="E:\codes\py39\\vits_vc_gpu_train\logs\mi-test-1key\\total_fea.npy", interactive=True)
+                        file_index1 = gr.Textbox(label="特征检索库文件路径",value="/content/drive/MyDrive/added_IVF677_Flat_nprobe_7.index", interactive=True)
+                        file_big_npy1 = gr.Textbox(label="特征文件路径",value="/content/drive/MyDrive/total_fea.npy", interactive=True)
                         index_rate1 =  gr.Slider(minimum=0, maximum=1,label='检索特征占比', value=1,interactive=True)
                     f0_file = gr.File(label="F0曲线文件，可选，一行一个音高，代替默认F0及升降调")
                     but0=gr.Button("转换", variant="primary")
@@ -500,14 +500,14 @@ with gr.Blocks() as app:
                 with gr.Row():
                     with gr.Column():
                         vc_transform1 = gr.Number(label="变调（整数，半音数量，升八度12降八度-12）", value=0)
-                        opt_input = gr.Textbox(label="指定输出文件夹",value="opt")
+                        opt_input = gr.Textbox(label="指定输出文件夹",value="/content/drive/MyDrive/output")
                         f0method1=gr.Radio(label="选择音高提取算法,输入歌声可用pm提速,harvest低音好但巨慢无比", choices=["pm","harvest"],value="pm", interactive=True)
                     with gr.Column():
-                        file_index2 = gr.Textbox(label="特征检索库文件路径",value="E:\codes\py39\\vits_vc_gpu_train\logs\mi-test-1key\\added_IVF677_Flat_nprobe_7.index", interactive=True)
-                        file_big_npy2 = gr.Textbox(label="特征文件路径",value="E:\codes\py39\\vits_vc_gpu_train\logs\mi-test-1key\\total_fea.npy", interactive=True)
+                        file_index2 = gr.Textbox(label="特征检索库文件路径",value="/content/drive/MyDrive/added_IVF677_Flat_nprobe_7.index", interactive=True)
+                        file_big_npy2 = gr.Textbox(label="特征文件路径",value="/content/drive/MyDrive/total_fea.npy", interactive=True)
                         index_rate2 =  gr.Slider(minimum=0, maximum=1,label='检索特征占比', value=1,interactive=True)
                     with gr.Column():
-                        dir_input = gr.Textbox(label="输入待处理音频文件夹路径(去文件管理器地址栏拷就行了)",value="E:\codes\py39\\vits_vc_gpu_train\\todo-songs")
+                        dir_input = gr.Textbox(label="输入待处理音频文件夹路径(去文件管理器地址栏拷就行了)",value="/content/drive/MyDrive/input_vocal")
                         inputs = gr.File(file_count="multiple", label="也可批量输入音频文件，二选一，优先读文件夹")
                     but1=gr.Button("转换", variant="primary")
                     vc_output3 = gr.Textbox(label="输出信息")
@@ -521,12 +521,12 @@ with gr.Blocks() as app:
                     """)
                 with gr.Row():
                     with gr.Column():
-                        dir_wav_input = gr.Textbox(label="输入待处理音频文件夹路径",value="E:\codes\py39\\vits_vc_gpu_train\\todo-songs")
+                        dir_wav_input = gr.Textbox(label="输入待处理音频文件夹路径",value="/content/drive/MyDrive/input")
                         wav_inputs = gr.File(file_count="multiple", label="也可批量输入音频文件，二选一，优先读文件夹")
                     with gr.Column():
                         model_choose = gr.Dropdown(label="模型", choices=uvr5_names)
-                        opt_vocal_root = gr.Textbox(label="指定输出人声文件夹",value="opt")
-                        opt_ins_root = gr.Textbox(label="指定输出乐器文件夹",value="opt")
+                        opt_vocal_root = gr.Textbox(label="指定输出人声文件夹",value="/content/drive/MyDrive/input_vocal")
+                        opt_ins_root = gr.Textbox(label="指定输出乐器文件夹",value="/content/drive/MyDrive/input_instru")
                     but2=gr.Button("转换", variant="primary")
                     vc_output4 = gr.Textbox(label="输出信息")
                     but2.click(uvr, [model_choose, dir_wav_input,opt_vocal_root,wav_inputs,opt_ins_root], [vc_output4])
@@ -543,7 +543,7 @@ with gr.Blocks() as app:
                     step2a：自动遍历训练文件夹下所有可解码成音频的文件并进行切片归一化，在实验目录下生成2个wav文件夹；暂时只支持单人训练。
                     """)
                 with gr.Row():
-                    trainset_dir4 = gr.Textbox(label="输入训练文件夹路径",value="E:\语音音频+标注\米津玄师\src")
+                    trainset_dir4 = gr.Textbox(label="输入训练文件夹路径",value="/content/drive/MyDrive/...")
                     spk_id5 = gr.Slider(minimum=0, maximum=4, step=1, label='请指定说话人id', value=0,interactive=True)
                     but1=gr.Button("处理数据", variant="primary")
                     info1=gr.Textbox(label="输出信息",value="")
@@ -570,7 +570,7 @@ with gr.Blocks() as app:
                     save_epoch10 = gr.Slider(minimum=0, maximum=50, step=1, label='保存频率save_every_epoch', value=5,interactive=True)
                     total_epoch11 = gr.Slider(minimum=0, maximum=100, step=1, label='总训练轮数total_epoch', value=10,interactive=True)
                     batch_size12 = gr.Slider(minimum=0, maximum=32, step=1, label='batch_size', value=4,interactive=True)
-                    if_save_latest13 = gr.Radio(label="是否仅保存最新的ckpt文件以节省硬盘空间", choices=["是", "否"], value="否", interactive=True)
+                    if_save_latest13 = gr.Radio(label="是否仅保存最新的ckpt文件以节省硬盘空间", choices=["是", "否"], value="是", interactive=True)
                     if_cache_gpu17 = gr.Radio(label="是否缓存所有训练集至显存。10min以下小数据可缓存以加速训练，大数据缓存会炸显存也加不了多少速", choices=["是", "否"], value="否", interactive=True)
                 with gr.Row():
                     pretrained_G14 = gr.Textbox(label="加载预训练底模G路径", value="pretrained/f0G40k.pth",interactive=True)
