@@ -101,8 +101,9 @@ class  _audio_pre_():
 if __name__ == '__main__':
     device = 'cuda'
     is_half=True
-    model_path='uvr5_weights/2_HP-UVR.pth'
+    model_path='uvr5_weights/HP5-主旋律人声vocals+其他instrumentals.pth'
     pre_fun = _audio_pre_(model_path=model_path,device=device,is_half=True)
-    audio_path = '神女劈观.aac'
-    save_path = 'opt'
-    pre_fun._path_audio_(audio_path , save_path,save_path)
+    audio_path = input('input path:')
+    save_path_v = '/content/drive/MyDrive/input_vocal'
+    save_path_i = '/content/drive/MyDrive/input_instru'
+    pre_fun._path_audio_(audio_path , save_path_v,save_path_i)
