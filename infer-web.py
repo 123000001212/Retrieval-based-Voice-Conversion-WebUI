@@ -636,8 +636,21 @@ with gr.Blocks() as app:
             gr.Markdown(value="""加开发群联系我xxxxx""")
         with gr.TabItem("点击查看交流、问题反馈群号"):
             gr.Markdown(value="""xxxxx""")
-
+'''
     if iscolab:
         app.queue(concurrency_count=511, max_size=1022).launch(share=True)
     else:
         app.queue(concurrency_count=511, max_size=1022).launch(server_name="0.0.0.0",inbrowser=True,server_port=listen_port,quiet=True)
+'''
+        
+if __name__=='__main__':
+    vc_multi(sid=0,dir_path="/content/drive/MyDrive/input_vocal",
+             opt_root="/content/drive/MyDrive/output",
+             paths=None,
+             f0_up_key=12,
+             f0_method='pm',
+             file_index="/content/drive/MyDrive/added_IVF677_Flat_nprobe_7.index",
+             file_big_npy="/content/drive/MyDrive/total_fea.npy",
+             index_rate=1)
+
+
